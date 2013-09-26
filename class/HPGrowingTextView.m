@@ -390,7 +390,12 @@
     internalTextViewFrame.origin.x = contentInset.left;
     internalTextViewFrame.size.width = internalTextView.contentSize.width;
     
-    if(!CGRectEqualToRect(internalTextView.frame, internalTextViewFrame)) internalTextView.frame = internalTextViewFrame;
+    if(!CGRectEqualToRect(internalTextView.frame, internalTextViewFrame))
+    {
+    	internalTextView.frame = internalTextViewFrame;
+    	[internalTextView setNeedsLayout];
+    }
+    
 }
 
 - (void)growDidStop
